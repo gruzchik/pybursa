@@ -5,7 +5,7 @@ from django.db import models
 class Coach(models.Model):
     name = models.CharField(max_length=255)
     surname = models.CharField(max_length=255)
-    position = models.CharField(max_length=25)
+#    position = models.CharField(max_length=25)
     position_choices = (
         ('Lector', 'Lector'),
         ('Asistant', 'Asistant'),

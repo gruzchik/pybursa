@@ -8,7 +8,7 @@ class Student(models.Model):
     date_of_birth = models.DateField()
     email = models.EmailField()
     phone = models.CharField(max_length=15)
-    package = models.CharField(max_length=15, default='st')
+#    package = models.CharField(max_length=15, default='st')
     package_choises = (
         ('st', 'Standart'),
         ('gl', 'Gold'),
