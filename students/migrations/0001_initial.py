@@ -7,6 +7,8 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('courses', '0002_auto_20141210_0638'),
+        ('dossier', '0001_initial'),
     ]
 
     operations = [
@@ -14,12 +16,13 @@ class Migration(migrations.Migration):
             name='Student',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=255)),
-                ('surname', models.CharField(max_length=255)),
-                ('date_of_birth', models.DateField()),
+                ('first_name', models.CharField(max_length=255)),
+                ('last_name', models.CharField(max_length=255)),
                 ('email', models.EmailField(max_length=75)),
-                ('phone', models.CharField(max_length=15)),
-                ('package', models.CharField(max_length=15)),
+                ('phone_number', models.CharField(max_length=13, blank=True)),
+                ('package', models.CharField(default=b's', max_length=1, choices=[(b's', b'Standard'), (b'g', b'Gold'), (b'p', b'Platinum')])),
+                ('courses', models.ManyToManyField(to='courses.Course', blank=True)),
+                ('dossier', models.OneToOneField(null=True, blank=True, to='dossier.Dossier')),
             ],
             options={
             },

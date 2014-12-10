@@ -1,12 +1,10 @@
-from django.views.generic import TemplateView
+from django.conf.urls import patterns, url
 
-
-from django.conf.urls import patterns, include, url
-from django.contrib import admin
-from courses.views import courses_list, courses_item
+from courses.views import courses_list, course_info
 
 
 urlpatterns = patterns('',
-    url(r'^$', courses_list),
-    url(r'^(?P<course_id>\d+)/$', courses_item),
-)
+                       url(r'^/(?P<course_id>\d+)/$', course_info,
+                           name="course_info"),
+                       url(r'^/$', courses_list, name='courses_list'),
+                       )

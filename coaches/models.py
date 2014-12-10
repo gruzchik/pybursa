@@ -1,17 +1,19 @@
+from django.contrib.auth.models import User
 from django.db import models
-
-# Create your models here.
+from dossier.models import Dossier
 
 class Coach(models.Model):
-    name = models.CharField(max_length=255)
-    surname = models.CharField(max_length=255)
-#    position = models.CharField(max_length=25)
-    position_choices = (
-        ('Lector', 'Lector'),
-        ('Asistant', 'Asistant'),
-    )
-    position_adv = models.CharField(max_length=25, choices=position_choices, default='Lector')
-    course_name = models.CharField(max_length=255)
-    date_of_birth = models.DateField()
+    COACH_TYPES = (('C', 'Coach'), ('A', 'Assistant'))
+
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
     email = models.EmailField()
-    phone = models.CharField(max_length=15)
+    phone_number = models.CharField(max_length=13)
+    ctype = models.CharField(choices=COACH_TYPES, max_length=1)
+    user = models.ForeignKey(User)
+    dossier = models.OneToOneField(Dossier, blank=True, null=True)
+
+    def __unicode__(self):
+        return "%s %s (%s)" % (self.first_name, self.last_name, self.ctype)
+
+

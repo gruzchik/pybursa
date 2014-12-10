@@ -1,5 +1,10 @@
 from django.contrib import admin
-from coaches.models import Coach
 
 # Register your models here.
-admin.site.register(Coach)
+from coaches.models import Coach
+
+
+class CoachAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'ctype')
+
+admin.site.register(Coach, CoachAdmin)

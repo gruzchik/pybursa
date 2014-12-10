@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>Courses</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>
+                    <a href="{% url 'student_info' student.id %}">
+                        {{ student.first_name }}
+                    </a>
+                </td>
+                <td>{{ student.last_name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.phone_number }}</td>
+                <td>
+                    {% for course in student.courses.all %}
+                        <a href="{% url 'course_info' course.id %}">
+                            {{ course.name }}<br>
+                        </a>
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
