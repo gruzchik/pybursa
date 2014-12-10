@@ -11,4 +11,4 @@ class Address(models.Model):
     numbuild = models.CharField(max_length=255)
     
     def __unicode__(self):
-        return "%s %s" % (self.postindex, self.country)
+        return "%s %s %s" % (self.region, self.street, self.numbuild)

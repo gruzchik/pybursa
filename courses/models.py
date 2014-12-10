@@ -15,7 +15,7 @@ class Course(models.Model):
                                   related_name="course_assistant")
     start_date = models.DateField()
     end_date = models.DateField()
-    technology = models.CharField(max_length=255, choices=TECHNOLOGY_CHOICE)
+    technology = models.CharField(max_length=255, choices=TECHNOLOGY_CHOICE, default='p')
     venue_adv = models.ForeignKey(Address, blank=True, null=True)
 
     def __unicode__(self):
