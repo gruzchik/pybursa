@@ -5,12 +5,16 @@ from address.models import Address
 # Create your models here.
 
 class Dossier(models.Model):
-    info = models.CharField(max_length=255)
+    #info = models.CharField(max_length=255)
     COLOR_CHOICES = (
-        ('b', 'blue'),
-        ('g', 'green'),
-        ('y', 'yellow'),
         ('r', 'red'),
+        ('o', 'orange'),
+        ('y', 'yellow'),       
+        ('g', 'green'),
+        ('b', 'blue'),
+        ('p', 'purple'),
+        ('w', 'white'),
+
     )
     address = models.ForeignKey('address.Address')
  #   hate_course = models.ManyToManyField('courses.Course', blank=True, null=True)
