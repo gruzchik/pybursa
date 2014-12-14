@@ -9,6 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('dossier', '0001_initial'),
     ]
 
     operations = [
@@ -21,6 +22,7 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(max_length=75)),
                 ('phone_number', models.CharField(max_length=13)),
                 ('ctype', models.CharField(max_length=1, choices=[(b'C', b'Coach'), (b'A', b'Assistant')])),
+                ('dossier', models.OneToOneField(null=True, blank=True, to='dossier.Dossier')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={

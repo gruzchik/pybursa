@@ -5,7 +5,11 @@ from address.models import Address
 
 # Register your models here.
 
-class AddressAdmin(admin.ModelAdmin):
-    list_display = ('country', 'region', 'street', 'numbuild')
 
-admin.site.register(Address, AddressAdmin)
+@admin.register(Address)
+class AddressAdmin(admin.ModelAdmin):
+    list_display = ['country', 'region', 'street']
+    list_display_links = ['country', 'region', 'street']
+    list_filter = ['country', 'region',
+        'street', 'numbuild']
+    search_fields = ['country', 'region', 'street', 'numbuild']

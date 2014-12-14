@@ -16,8 +16,8 @@ class Dossier(models.Model):
         ('w', 'white'),
 
     )
-    address = models.ForeignKey('address.Address')
- #   hate_course = models.ManyToManyField('courses.Course', blank=True, null=True)
+    address = models.ForeignKey('address.Address', blank=True, null=True)
+    hate_course = models.ManyToManyField('courses.Course', blank=True, null=True)
     like_color = models.CharField(max_length=1, choices=COLOR_CHOICES,
                                default='g')
 

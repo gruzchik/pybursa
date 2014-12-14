@@ -20,10 +20,10 @@ class Migration(migrations.Migration):
                 ('description', models.TextField()),
                 ('start_date', models.DateField()),
                 ('end_date', models.DateField()),
-                ('technology', models.CharField(max_length=255, choices=[(b'p', b'Python'), (b'r', b'Ruby'), (b'h', b'Php')])),
+                ('technology', models.CharField(default=b'p', max_length=255, choices=[(b'p', b'Python'), (b'r', b'Ruby'), (b'h', b'Php')])),
                 ('assistant', models.ForeignKey(related_name='course_assistant', blank=True, to='coaches.Coach', null=True)),
                 ('coach', models.ForeignKey(to='coaches.Coach')),
-                ('venue', models.ForeignKey(blank=True, to='address.Address', null=True)),
+                ('venue_adv', models.ForeignKey(blank=True, to='address.Address', null=True)),
             ],
             options={
             },

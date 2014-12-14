@@ -4,7 +4,11 @@ from django.contrib import admin
 from coaches.models import Coach
 
 
+@admin.register(Coach)
 class CoachAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'ctype')
-
-admin.site.register(Coach, CoachAdmin)
+    list_display = ['first_name', 'last_name', 'ctype']
+    list_display_links = ['first_name', 'last_name', 'ctype']
+    list_filter = ['first_name', 'last_name',
+        'ctype']
+    search_fields = ['first_name', 'last_name', 'ctype']
+    radio_fields = {'ctype': admin.HORIZONTAL}
