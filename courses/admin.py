@@ -12,4 +12,4 @@ class CourseAdmin(admin.ModelAdmin):
         'start_date', 'end_date']
     search_fields = ['name', 'technology']
     prepopulated_fields = {'slug': ('name',)}
-    radio_fields = {"technology": admin.HORIZONTAL}
+    radio_fields = {'technology': admin.HORIZONTAL}
