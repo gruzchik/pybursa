@@ -11,4 +11,4 @@ def coaches_list(request):
 
 def coach_info(request, coach_id):
     coach = get_object_or_404(Coach, id=coach_id)
-    return render(request, 'coaches/coach_detail.html', {'coach': coach})
+    return render(request, 'coaches/coach_details.html', {'coach': coach})

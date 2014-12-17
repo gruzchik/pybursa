@@ -11,4 +11,5 @@ class CoachAdmin(admin.ModelAdmin):
     list_filter = ['first_name', 'last_name',
         'ctype']
     search_fields = ['first_name', 'last_name', 'ctype']
-    radio_fields = {'ctype': admin.HORIZONTAL}
+    if len(Coach.COACH_TYPES) <= 5:
+        radio_fields = {'ctype': admin.HORIZONTAL}

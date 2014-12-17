@@ -12,4 +12,4 @@ def students_list(request):
 
 def student_info(request, student_id):
     student = get_object_or_404(Student, id=student_id)
-    return render(request, 'students/student_detail.html', {'student': student})
+    return render(request, 'students/student_details.html', {'student': student})

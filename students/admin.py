@@ -11,4 +11,5 @@ class StudentAdmin(admin.ModelAdmin):
         'package']
     search_fields = ['first_name', 'last_name', 'package']
     filter_horizontal = ['courses']
-    radio_fields = {'package': admin.HORIZONTAL}
+    if len(Student.PACKAGE_CHOICES) <= 5:
+        radio_fields = {'package': admin.HORIZONTAL}

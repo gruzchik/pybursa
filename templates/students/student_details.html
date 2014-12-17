@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+
+      <div class="page-header">
+      <h2>Student {{ student.first_name }} {{ student.last_name }}</h2>
+      <br />
+      <ul class="list-group">
+        <li class="list-group-item">Email: {{ student.email }}</li>
+        <li class="list-group-item">Phone: {{ student.phone_number }}</li>
+        <li class="list-group-item">Packet: {{ student.package }}</li>
+      <br />
+      </div>
+
+
+      
+{% endblock content %}

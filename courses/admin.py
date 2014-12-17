@@ -12,4 +12,5 @@ class CourseAdmin(admin.ModelAdmin):
         'start_date', 'end_date']
     search_fields = ['name', 'technology']
     prepopulated_fields = {'slug': ('name',)}
-    radio_fields = {'technology': admin.HORIZONTAL}
+    if len(Course.TECHNOLOGY_CHOICE) <= 5:
+        radio_fields = {'technology': admin.HORIZONTAL}

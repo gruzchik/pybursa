@@ -15,4 +15,5 @@ class DossierAdmin(admin.ModelAdmin):
     list_filter = ['address', 'like_color']
     search_fields = ['address']
     filter_horizontal = ['hate_course']
-    radio_fields = {'like_color': admin.HORIZONTAL}
+    if len(Dossier.COLOR_CHOICES) <= 5:
+        radio_fields = {'like_color': admin.HORIZONTAL}
