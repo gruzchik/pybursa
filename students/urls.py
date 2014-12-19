@@ -1,4 +1,5 @@
-from django.conf.urls import patterns, url
+from django.views.generic import TemplateView
+from django.conf.urls import patterns, include, url
 
 from students.views import student_info, students_list
 
