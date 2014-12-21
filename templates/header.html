@@ -14,14 +14,16 @@
         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <!--<li class="active"><a href="/">Home</a></li>--> 
-            <li{% if location == '/' %} class="active"{% endif %}><a href="/">Home</a></li>
-            <li{% if request.path == 'students' %} class="active"{% endif %}><a href="{% url 'students_list' %}">Students{{ request.path }}</a></li>
-            <li{% if request.path == "/courses/" %} class="active"{% endif %}><a href="{% url 'courses_list' %}">Courses</a></li>
-            <li{% if request.path == 'coaches '%} class="active"{% else %} class=""{% endif %}><a href="{% url 'coaches_list' %}">Coaches</a></li>
+            <li{% if request.path == '/' %} class="active"{% endif %}><a href="/">Home</a></li>
+            <li{% if request.path == '/student/' %} class="active"{% endif %}><a href="{% url 'students_list' %}">Students</a></li>
+            <li{% if request.path == "/course/" %} class="active"{% endif %}><a href="{% url 'courses_list' %}">Courses</a></li>
+            <li{% if request.path == '/coach/' %} class="active"{% else %} class=""{% endif %}><a href="{% url 'coaches_list' %}">Coaches</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
 </nav>
+{% comment %}
 123{{ request.path }}321
 456 {{ location }} 654
-{% endblock %}
+{% endcomment %}
+{% endblock header %}

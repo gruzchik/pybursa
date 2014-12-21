@@ -1,7 +1,29 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 from students.models import Student
+from django import forms
+
+
+class StudentForm(forms.Form):
+    PACKAGE_CHOICES = (
+        ('s', 'Standard'),
+        ('g', 'Gold'),
+        ('p', 'Platinum')
+    )
+    student_firstname = forms.CharField(label='Name', max_length=100)
+    student_lastname = forms.CharField(label='Last name', max_length=255)
+    student_email = forms.EmailField()
+    students_phone = forms.CharField(max_length=13)
+    student_package = forms.ChoiceField(choices=PACKAGE_CHOICES, widget=forms.RadioSelect)
+
+
+class StudentModelForm(forms.ModelForm):
+	class Meta:
+		model = Student
+		#fields = ['first_name', 'last_name', 'phone_number', 'courses', 'package']
+		exclude = ['dossier']
 
 
 def students_list(request):
@@ -13,3 +35,59 @@ def students_list(request):
 def student_info(request, student_id):
     student = get_object_or_404(Student, id=student_id)
     return render(request, 'students/student_details.html', {'student': student})
+
+
+#def student_edit(request, student_id=None):
+#    if student_id is None:
+#        student = Student()
+#    else:
+#        student = Student.objects.get(id=student_id)
+#    if request.method == 'POST':
+#        form = StudentForm(request.POST)
+#        if form.is_valid():
+#            student.first_name = form.cleaned_data['student_firstname']
+#            student.last_name = form.cleaned_data['student_lastname']
+#            student.phone_number = form.cleaned_data['students_phone']
+#            student.package = form.cleaned_data['student_package']
+#            student.save()
+#            # process
+#            return redirect('student_edit', student_id)
+#        #    return HttpResponseRedirect('http://127.0.0.1:8000')
+#    else:
+#        form = StudentForm(initial={'student_firstname':student.first_name,
+#        	                        'student_lastname':student.last_name,
+#                                    'students_phone':student.phone_number,
+#                                    'student_package':student.package})
+#    return render(request, 'students/student_edit.html', {'form': form})
+
+def student_edit(request, student_id):
+    title = "Student edit item"
+    if student_id is None:
+        student = Student()
+    else:
+        student = Student.objects.get(id=student_id)
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST, instance=student)
+        if form.is_valid():
+            student = form.save()
+            return redirect('students_list')
+    else:
+        form = StudentModelForm(instance=student)
+    return render(request, 'students/student_edit.html', {'form': form, 'title': title})
+
+
+def student_add(request):
+    title = "Student add item"
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST)
+        if form.is_valid():
+            student = form.save()
+            return redirect('students_list')
+    else:
+        form = StudentModelForm()
+    return render(request, 'students/student_edit.html', {'form': form, 'title': title})
+
+def student_delete(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    student.delete()
+    return redirect('students_list')

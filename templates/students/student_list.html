@@ -1,9 +1,4 @@
-
-{% extends "base.html" %}
-
-{% block header %}
-  {% include "header.html" %}
-{% endblock %}
+{% extends "students/base.html" %}
 
 {% block  content %}
     <table class="table table-hover">
@@ -40,5 +35,7 @@
         {% endfor %}
         </tbody>
     </table>
+    <br><br>
+    <a href="{% url 'student_add' %}"><button>Add Student</button></a>
 
 {% endblock content %}

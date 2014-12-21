@@ -1,0 +1,15 @@
+{% extends "courses/base.html" %}
+
+{% block content %}
+    <div class="container">
+    	<h1> {{ title }} </h1>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <p>{{ forloop.counter}} {{ field.label_tag }} {{ field }}</p>
+            {% endfor %} 
+        <input type="submit" value="Submit" />
+    </form>
+    </div> <!-- /.container -->
+    <br><p><a href="{% url 'courses_list' %}">back to Courses List</a></p>
+{% endblock content %}

@@ -75,6 +75,10 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
+TEMPLATE_CONTEXT_PROCESSORS += (
+'django.core.context_processors.request',
+)
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'

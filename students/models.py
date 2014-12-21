@@ -8,7 +8,7 @@ class Student(models.Model):
     PACKAGE_CHOICES = (
         ('s', 'Standard'),
         ('g', 'Gold'),
-        ('p', 'Platinum')
+        ('p', 'Platinum'),
     )
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "coaches/base.html" %}
 
 {% block header %}
   {% include "header.html" %}
@@ -15,4 +15,6 @@
         </li>
     {% endfor %}
     </ul>
+    <br><br>
+    <a href="{% url 'coach_add' %}"><button>Add Coach</button></a>
 {% endblock content %}

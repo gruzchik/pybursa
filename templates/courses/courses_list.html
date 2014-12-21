@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "courses/base.html" %}
 
 {% block header %}
   {% include "header.html" %}
@@ -48,4 +48,6 @@
             {% endfor %}
         </tbody>
     </table>
+    <br><br>
+    <a href="{% url 'course_add' %}"><button>Add Course</button></a>
 {% endblock content %}

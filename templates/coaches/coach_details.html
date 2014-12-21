@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "coaches/base.html" %}
 
 {% block content %}
     <div class="page-header">
@@ -43,4 +43,9 @@
             </tbody>
         </table>
     </div>
+    <br>
+    <a href="{% url 'coach_edit' coach.id %}">Edit Coach Info</a>
+    <br>
+    <br>
+    <a href="{% url 'coach_delete' coach.id %}">Delete Coach</a>
 {% endblock content %}
