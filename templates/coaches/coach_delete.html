@@ -1,0 +1,13 @@
+{% extends "courses/base.html" %}
+
+{% block content %}
+    <div class="container">
+    	<h2 >Really delete {{ object.name }}?</h2>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+        <p class="submit"><input type="submit" value="Yes, delete this coach."></p>
+    </form>
+    </div> <!-- /.container -->
+    <br><p><a href="{% url 'coaches_list' %}">back to Coaches List</a></p>
+{% endblock content %}

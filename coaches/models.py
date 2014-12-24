@@ -3,7 +3,7 @@ from django.db import models
 from dossier.models import Dossier
 
 class Coach(models.Model):
-    COACH_TYPES = (('C', 'Coach'), ('A', 'Assistant'))
+    COACH_TYPES = (('Coach', 'Coach'), ('Assistant', 'Assistant'))
 
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)

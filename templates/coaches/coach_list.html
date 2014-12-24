@@ -6,15 +6,21 @@
 
 {% block content %}
     <h3>Coaches</h3>
-    <ul class="list-group">
-    {% for coach in coaches %}
-        <li class="list-group-item">
+    <br>
+    <table class="table table-hover">
+        {% for coach in object_list %}
+        <tr>
+            <td>
             <a href="{% url 'coach_info' coach.id %}">
                 {{ coach.first_name }} {{ coach.last_name }}
             </a>
-        </li>
+            </td>
+            <td>
+            {{ coach.ctype }}
+            </td>
+        </tr>
     {% endfor %}
-    </ul>
+    </table>
     <br><br>
     <a href="{% url 'coach_add' %}"><button>Add Coach</button></a>
 {% endblock content %}
