@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 21:36+0000\n"
+"POT-Creation-Date: 2015-01-04 21:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,6 +34,18 @@ msgstr ""
 #: pybursa/views.py:20
 msgid "Email"
 msgstr "Почтова скринька"
+
+#: pybursa/views.py:21
+#, fuzzy
+#| msgid "Coaches"
+msgid "CoachForm"
+msgstr "Викладачі"
+
+#: pybursa/views.py:22
+#, fuzzy
+#| msgid "Students"
+msgid "StudentName"
+msgstr "Студенти"
 
 #: pybursa/views.py:23
 msgid "Theme"

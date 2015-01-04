@@ -17,11 +17,11 @@ def index(request):
     return render(request, 'default.html')
 
 class ContactForm(forms.Form):
-	email = forms.EmailField(label=_("Email"))
-    #coach = forms.ModelChoiceField(label=_("CoachForm"), queryset=Coach.objects.all())
-    #student = forms.ModelChoiceField(label=_("StudentName"), queryset=Student.objects.all(),)
-	theme = forms.CharField(label=_("Theme"), max_length=255)
-	body = forms.CharField(label=_("Message body"), widget=forms.Textarea)
+    email = forms.EmailField(label=_("Email"))
+    coach = forms.ModelChoiceField(label=_("CoachForm"), queryset=Coach.objects.all(),)
+    student = forms.ModelChoiceField(label=_("StudentName"), queryset=Student.objects.all(),)
+    theme = forms.CharField(label=_("Theme"), max_length=255)
+    body = forms.CharField(label=_("Message body"), widget=forms.Textarea)
 
 
 def contact(request):
