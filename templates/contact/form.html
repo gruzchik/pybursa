@@ -1,0 +1,21 @@
+{% extends "contact/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="container">
+    {% if messages %}
+      {% for message in messages %}
+       <div class="alert alert-success" role="alert">{{ message }}</div>
+       {% endfor %}
+    {% endif %}
+
+    <h1>{% trans "Complaint" %}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value={% trans "Send" %}>
+        </form>
+    </div>
+
+{% endblock %}

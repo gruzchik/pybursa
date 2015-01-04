@@ -1,4 +1,5 @@
 {% extends "students/base.html" %}
+{% load i18n %}
 
 {% block  content %}
     <table class="table table-hover">
@@ -36,6 +37,6 @@
         </tbody>
     </table>
     <br><br>
-    <a href="{% url 'student_add' %}"><button>Add Student</button></a>
+    <a href="{% url 'student_add' %}"><button>{% trans "Add Student" %}</button></a>
 
 {% endblock content %}

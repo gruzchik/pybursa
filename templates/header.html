@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
+
 {% block header %}
 <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
@@ -14,11 +16,28 @@
         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <!--<li class="active"><a href="/">Home</a></li>--> 
-            <li{% if request.path == '/' %} class="active"{% endif %}><a href="/">Home</a></li>
-            <li{% if request.path == '/student/' %} class="active"{% endif %}><a href="{% url 'students_list' %}">Students</a></li>
-            <li{% if request.path == "/course/" %} class="active"{% endif %}><a href="{% url 'courses_list' %}">Courses</a></li>
-            <li{% if request.path == '/coach/' %} class="active"{% else %} class=""{% endif %}><a href="{% url 'coaches_list' %}">Coaches</a></li>
+            <li{% if request.path == '/' %} class="active"{% endif %}><a href="/">{% trans "Home" %}</a></li>
+            <li{% if request.path == '/student/' %} class="active"{% endif %}><a href="{% url 'students_list' %}">{% trans "Students" %}</a></li>
+            <li{% if request.path == "/course/" %} class="active"{% endif %}><a href="{% url 'courses_list' %}">{% trans "Courses" %}</a></li>
+            <li{% if request.path == '/coach/' %} class="active"{% else %} class=""{% endif %}><a href="{% url 'coaches_list' %}">{% trans "Coaches" %}</a></li>
+            <li{% if request.path == '/contact/' %} class="active"{% else %} class=""{% endif %}><a href="{% url 'contact_us' %}">{% trans "Complain" %}</a></li>
           </ul>
+         <div align="right">
+         {% get_current_language as LANGUAGE_CODE %}
+         {% get_available_languages as LANGUAGES %}
+
+         {{ LANGUAGE_CODE }}
+         {% for LANGUAGE in LANGUAGES %}
+         {{ LANGUAGE.0 }}
+         {% endfor %}
+
+         <form action="{% url 'set_language' %}" method="post">
+         {% csrf_token %}
+         <input name="language" type="text" />
+         <input type="submit" value="Go" />
+         </form>
+
+         </div>
         </div><!--/.nav-collapse -->
       </div>
 </nav>

@@ -1,3 +1,4 @@
+from django.utils.translation import ugettext_lazy as _
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 """
@@ -28,7 +29,8 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
 # Application definition
 
 INSTALLED_APPS = (
@@ -47,6 +49,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -72,6 +75,7 @@ DATABASES = {
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'), )
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -79,7 +83,13 @@ TEMPLATE_CONTEXT_PROCESSORS += (
 'django.core.context_processors.request',
 )
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGES = (
+    ('en', _('English')),
+    ('uk', _('Ukrainian')),
+    ('ru', _('Russian')),
+)
+
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
