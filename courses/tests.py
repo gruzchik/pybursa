@@ -14,17 +14,17 @@ class CourseTest(TestCase):
         response = client.get('/course/1/')
         self.assertEqual(response.status_code, 404)
 
-        coach_1 = Coach.objects.create(first_name='Petr',
-                                       last_name='Ivanov',
-                                       email="example@example.com",
-                                       phone_number='050066095'
-                                       )
+        # coach_1 = Coach.objects.create(first_name='Petr',
+        #                                last_name='Ivanov',
+        #                                email="example@example.com",
+        #                                phone_number='050066095'
+        #                                )
 
-        course1 = Course.objects.create(name='PyBursa02',
-                                        start_date=date(2015, 2, 16),
-                                        end_date=date(2015, 4, 16),
-                                        description='new course',
-                                        coach='coach',
-                                        assistant='assistant',
-                                        technology='p')
+        # course1 = Course.objects.create(name='PyBursa02',
+        #                                 start_date=date(2015, 2, 16),
+        #                                 end_date=date(2015, 4, 16),
+        #                                 description='new course',
+        #                                 coach='coach',
+        #                                 assistant='assistant',
+        #                                 technology='p')
 		
