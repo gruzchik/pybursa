@@ -6,6 +6,9 @@ from django.core.urlresolvers import reverse_lazy
 from courses.models import Course
 from django import forms
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class CoursesModelForm(forms.ModelForm):
 	class Meta:

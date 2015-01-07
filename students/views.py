@@ -5,6 +5,9 @@ from django.http import HttpResponseRedirect
 from students.models import Student
 from django import forms
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class StudentForm(forms.Form):
     PACKAGE_CHOICES = (
@@ -70,7 +73,10 @@ def student_edit(request, student_id):
         form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
             student = form.save()
+            logger.info("Student info was edit")
             return redirect('students_list')
+        else:
+            logger.warning("Student cannot edit")
     else:
         form = StudentModelForm(instance=student)
     return render(request, 'students/student_edit.html', {'form': form, 'title': title})
@@ -82,7 +88,10 @@ def student_add(request):
         form = StudentModelForm(request.POST)
         if form.is_valid():
             student = form.save()
+            logger.info("Student has been added")
             return redirect('students_list')
+        else:
+            logger.warning("Student cannot added")
     else:
         form = StudentModelForm()
     return render(request, 'students/student_edit.html', {'form': form, 'title': title})
@@ -90,4 +99,5 @@ def student_add(request):
 def student_delete(request, student_id):
     student = get_object_or_404(Student, id=student_id)
     student.delete()
+    logger.info("Student has been removed")
     return redirect('students_list')

@@ -10,6 +10,10 @@ from django.utils import translation
 from courses.models import Course
 from coaches.models import Coach
 from students.models import Student
+from django.template.loader import render_to_string
+
+import logging
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 
@@ -25,6 +29,10 @@ class ContactForm(forms.Form):
 
 
 def contact(request):
+    #logger.debug("Logging at DEBUG level")
+    #logger.info("Logging at INFO level")
+    #logger.warning("Logging at WARNING level")
+    #logger.error("Logging at ERROR level")
     print translation.get_language()
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -32,9 +40,17 @@ def contact(request):
             email = form.cleaned_data['email']
             theme = form.cleaned_data['theme']
             body = form.cleaned_data['body']
+            coach = form.cleaned_data['coach']
+            student = form.cleaned_data['student']
+            rendered = render_to_string('contact/form_email.html', {'coach_name': coach.first_name},
+                                                                   {'student_name': student.first_name})
             send_mail(theme, body, email, ['ahtyrka@yandex.ru'], fail_silently=False)
             messages.success(request, 'Message was sent')
+            logger.info("Message was sent")
             return redirect('contact_us')
+        else:
+            logger.error("Message didn't sent")
     else:
+
         form = ContactForm()
     return render(request, 'contact/form.html', {'form': form})

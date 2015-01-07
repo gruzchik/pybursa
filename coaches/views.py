@@ -6,6 +6,9 @@ from django.core.urlresolvers import reverse_lazy
 from coaches.models import Coach
 from django import forms
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class CoachForm(forms.Form):
     COACH_TYPES = (('Coach', 'Coach'), ('Assistant', 'Assistant'))
