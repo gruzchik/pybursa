@@ -29,10 +29,6 @@ class ContactForm(forms.Form):
 
 
 def contact(request):
-    #logger.debug("Logging at DEBUG level")
-    #logger.info("Logging at INFO level")
-    #logger.warning("Logging at WARNING level")
-    #logger.error("Logging at ERROR level")
     print translation.get_language()
     if request.method == 'POST':
         form = ContactForm(request.POST)

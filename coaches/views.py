@@ -41,13 +41,20 @@ class CoachUpdateView(UpdateView):
     form_class = CoachModelForm
     template_name = 'coaches/coach_edit.html'
     success_url = reverse_lazy('coaches_list')
-
+    def form_valid(self, form):
+        coach = form.save()
+        logger.info("Coach info has been modified")
+        return super(CoachUpdateView, self).form_valid(form)
 
 class CoachCreate(CreateView):
     model = Coach
     form_class = CoachModelForm
     template_name = 'coaches/coach_edit.html'
     success_url = reverse_lazy('coaches_list')
+    def form_valid(self, form):
+        coach = form.save()
+        logger.info("Coach has been added")
+        return super(CoachCreate, self).form_valid(form)
 
 
 class CoachDelete(DeleteView):

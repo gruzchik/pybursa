@@ -1,30 +1,11 @@
 
-Logging at WARNING level
-Logging at ERROR level
-Message didn't sent
-Logging at WARNING level
-Logging at ERROR level
-Logging at WARNING level
-Logging at ERROR level
-Message didn't sent
-Logging at WARNING level
-Logging at ERROR level
-Message didn't sent
-Logging at WARNING level
-Logging at ERROR level
-Message didn't sent
-Logging at WARNING level
-Logging at ERROR level
-Message didn't sent
-Logging at WARNING level
-Logging at ERROR level
-Message didn't sent
-Logging at WARNING level
-Logging at ERROR level
-Message didn't sent
-Logging at WARNING level
-Logging at ERROR level
-Message didn't sent
-Student info was edit
-Student has been added
-Student was deleted
+2015-01-07 22:28:45 courses.views INFO Course has been created
+2015-01-07 22:30:44 courses.views INFO Course has been modified
+2015-01-07 22:31:15 courses.views INFO Course has been modified
+2015-01-07 22:32:15 courses.views INFO Course has been modified
+2015-01-07 22:41:33 students.views INFO Student info was edit
+2015-01-07 22:45:33 coaches.views INFO Coach has been added
+2015-01-07 22:45:53 coaches.views INFO Coach info has been modified
+2015-01-07 22:46:02 coaches.views INFO Coach info has been modified
+2015-01-07 22:46:09 coaches.views INFO Coach info has been modified
+2015-01-07 22:46:29 coaches.views INFO Coach info has been modified

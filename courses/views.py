@@ -32,6 +32,10 @@ class CourseCreate(CreateView):
     template_name = 'courses/courses_edit.html'
     form_class = CoursesModelForm
     success_url = reverse_lazy('courses_list')
+    def form_valid(self, form):
+        course = form.save()
+        logger.info("Course has been created")
+        return super(CourseCreate, self).form_valid(form)
 
 
 class CourseUpdateView(UpdateView):
@@ -39,6 +43,10 @@ class CourseUpdateView(UpdateView):
     template_name = 'courses/courses_edit.html'
     form_class = CoursesModelForm
     success_url = reverse_lazy('courses_list')
+    def form_valid(self, form):
+        course = form.save()
+        logger.info("Course has been modified")
+        return super(CourseUpdateView, self).form_valid(form)
 
 
 class CourseDelete(DeleteView):

@@ -40,29 +40,6 @@ def student_info(request, student_id):
     return render(request, 'students/student_details.html', {'student': student})
 
 
-#def student_edit(request, student_id=None):
-#    if student_id is None:
-#        student = Student()
-#    else:
-#        student = Student.objects.get(id=student_id)
-#    if request.method == 'POST':
-#        form = StudentForm(request.POST)
-#        if form.is_valid():
-#            student.first_name = form.cleaned_data['student_firstname']
-#            student.last_name = form.cleaned_data['student_lastname']
-#            student.phone_number = form.cleaned_data['students_phone']
-#            student.package = form.cleaned_data['student_package']
-#            student.save()
-#            # process
-#            return redirect('student_edit', student_id)
-#        #    return HttpResponseRedirect('http://127.0.0.1:8000')
-#    else:
-#        form = StudentForm(initial={'student_firstname':student.first_name,
-#        	                        'student_lastname':student.last_name,
-#                                    'students_phone':student.phone_number,
-#                                    'student_package':student.package})
-#    return render(request, 'students/student_edit.html', {'form': form})
-
 def student_edit(request, student_id):
     title = "Student edit item"
     if student_id is None:

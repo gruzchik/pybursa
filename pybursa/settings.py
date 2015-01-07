@@ -119,11 +119,13 @@ LOGGING = {
         'console': {
             'level': 'INFO',
             'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
         },
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR,'debug.log'),
+            'formatter': 'verbose'
         },
     },
     'loggers': {
@@ -132,6 +134,14 @@ LOGGING = {
             'level': 'DEBUG',
         },
         'students': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+        },
+        'courses': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+        },
+        'coaches': {
             'handlers': ['console', 'file'],
             'level': 'DEBUG',
         },
