@@ -1,0 +1,12 @@
+[2015-01-11 14:42:19 +0000] [15959] [INFO] Starting gunicorn 19.1.1
+[2015-01-11 14:42:19 +0000] [15959] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2015-01-11 14:42:19 +0000] [15959] [ERROR] Retrying in 1 second.
+[2015-01-11 14:42:20 +0000] [15959] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2015-01-11 14:42:20 +0000] [15959] [ERROR] Retrying in 1 second.
+[2015-01-11 14:42:21 +0000] [15959] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2015-01-11 14:42:21 +0000] [15959] [ERROR] Retrying in 1 second.
+[2015-01-11 14:42:22 +0000] [15959] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2015-01-11 14:42:22 +0000] [15959] [ERROR] Retrying in 1 second.
+[2015-01-11 14:42:23 +0000] [15959] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2015-01-11 14:42:23 +0000] [15959] [ERROR] Retrying in 1 second.
+[2015-01-11 14:42:24 +0000] [15959] [ERROR] Can't connect to ('127.0.0.1', 8000)
